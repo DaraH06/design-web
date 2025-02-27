@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Saya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        #contact {
+            background: white;
+            padding: 20px;
+            margin: 50px auto;
+            width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        a {
+            color: #007BFF;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body> 
+    <nav>
+        <a href="/my-first_html5 web-page.html">Home</a>
+    </nav>
+    <section id="contact">
+        <h2>Kontak</h2>
+        <p>Email: <a href="mailto:teguh.thewaifu.kun@gmail.com">teguh.thewaifu.kun@gmail.com</a></p>
+        <p>WhatsApp: <a href="https://api.whatsapp.com/send/?phone=6282143251748&text=halo%20sayang%20kamuh%20gi%20apah&type=phone_number&app_absent=0" target="_blank">Hubungi Saya</a></p>
+        
+        <h3>Kirim Pesan</h3>
+        <form onsubmit="SendToWhatsapp(event)">
+            <input type="text" id="name" placeholder="Nama Anda" required>
+            <input type="email" id="email" placeholder="Email Anda" required>
+            <textarea id="message" placeholder="Pesan Anda" rows="4" required></textarea>
+            <button type="submit">Kirim</button>
+        </form>
+    </section>
+
+    <script>
+        function SendToWhatsapp(event) {
+            event.preventDefault();
+            
+            // Ambil nilai input
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let pesan = document.getElementById("Pesan").value;
+            
+
+            let whatsappPesan = `Nama: ${name}%0AEmail: ${email}%0A%0A"${pesan}"`;
+            let phoneNumber = "6282143251748";
+            let whatsappURL = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${whatsappPesan}&type=phone_number&app_absent=0`;
+            
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
+</body>
+</html>
